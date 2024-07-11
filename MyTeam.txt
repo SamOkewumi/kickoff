@@ -1,0 +1,213 @@
+🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰
+       			👑 Richmond Kings FC's TEAM REPORT           
+🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰
+	⚜️Team Name: Richmond Kings FC
+	🎲Total Matches Created: 14
+	🎟️Total Matches Played: 4
+	⚽Total Goals: 20
+➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+➖➖➖➖➖           📊PLAYER STATISTIC            ➖➖➖➖➖
+📛Player Name: Brice Samba
+	#️⃣Player Number: 1
+	🧳Player Position: GK
+	⚽Player Goals: 1
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 1
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Benjamin Pavard
+	#️⃣Player Number: 2
+	🧳Player Position: DF
+	⚽Player Goals: 1
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Ferland Mendy
+	#️⃣Player Number: 3
+	🧳Player Position: DF
+	⚽Player Goals: 1
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Dayot Upamecano
+	#️⃣Player Number: 4
+	🧳Player Position: DF
+	⚽Player Goals: 1
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Jules Kounde
+	#️⃣Player Number: 5
+	🧳Player Position: DF
+	⚽Player Goals: 7
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Eduardo Camavinga
+	#️⃣Player Number: 6
+	🧳Player Position: MF
+	⚽Player Goals: 0
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Antoine Griezmann
+	#️⃣Player Number: 7
+	🧳Player Position: FW
+	⚽Player Goals: 0
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Aurelien Tchouameni
+	#️⃣Player Number: 8
+	🧳Player Position: MF
+	⚽Player Goals: 0
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Olivier Giroud
+	#️⃣Player Number: 9
+	🧳Player Position: FW
+	⚽Player Goals: 0
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Kylian Mbappe
+	#️⃣Player Number: 10
+	🧳Player Position: FW
+	⚽Player Goals: 9
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Ousmane Dembele
+	#️⃣Player Number: 11
+	🧳Player Position: FW
+	⚽Player Goals: 0
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Randal Kolo Muani
+	#️⃣Player Number: 12
+	🧳Player Position: FW
+	⚽Player Goals: 0
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: N'Golo Kante
+	#️⃣Player Number: 13
+	🧳Player Position: MF
+	⚽Player Goals: 0
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Adrien Rabiot
+	#️⃣Player Number: 14
+	🧳Player Position: MF
+	⚽Player Goals: 0
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Marcus Thuram
+	#️⃣Player Number: 15
+	🧳Player Position: FW
+	⚽Player Goals: 0
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Mike Maignan
+	#️⃣Player Number: 16
+	🧳Player Position: GK
+	⚽Player Goals: 0
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: William Saliba
+	#️⃣Player Number: 17
+	🧳Player Position: DF
+	⚽Player Goals: 0
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Warren Zaire-Emery
+	#️⃣Player Number: 18
+	🧳Player Position: MF
+	⚽Player Goals: 0
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Youssouf Fofana
+	#️⃣Player Number: 19
+	🧳Player Position: MF
+	⚽Player Goals: 0
+	🟨Player YellowCards: 1
+	🟥Player RedCards: 0
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Kingsley Coman
+	#️⃣Player Number: 20
+	🧳Player Position: FW
+	⚽Player Goals: 0
+	🟨Player YellowCards: 2
+	🟥Player RedCards: 1
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Jonathan Clauss
+	#️⃣Player Number: 21
+	🧳Player Position: DF
+	⚽Player Goals: 0
+	🟨Player YellowCards: 2
+	🟥Player RedCards: 1
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Theo Hernandez
+	#️⃣Player Number: 22
+	🧳Player Position: DF
+	⚽Player Goals: 0
+	🟨Player YellowCards: 2
+	🟥Player RedCards: 1
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Alphonse Areola
+	#️⃣Player Number: 23
+	🧳Player Position: GK
+	⚽Player Goals: 0
+	🟨Player YellowCards: 2
+	🟥Player RedCards: 1
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Ibrahima Konate
+	#️⃣Player Number: 24
+	🧳Player Position: DF
+	⚽Player Goals: 0
+	🟨Player YellowCards: 2
+	🟥Player RedCards: 1
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+📛Player Name: Bradley Barcola
+	#️⃣Player Number: 25
+	🧳Player Position: FW
+	⚽Player Goals: 0
+	🟨Player YellowCards: 2
+	🟥Player RedCards: 1
+➖➖➖➖➖➖                                         ➖➖➖➖➖
+
+➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+➖➖➖➖➖                  🏁END                   ➖➖➖➖➖
+➖➖➖➖➖          🚀generated by KickOff™️        ➖➖➖➖➖
+🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰🟰

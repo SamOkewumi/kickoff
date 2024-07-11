@@ -86,6 +86,9 @@ public class Match extends Event{
 
 	@Override
 	public String toString() { //override parent class toString method
+		if(this.isMatchPlayed()) { //if the game has been played, display the results. 
+			return String.format("[\n	📢TITLE: %s\n	🏆Results: %s [ %s : %s ] %s\n	🗒️DESCRIPTION: %s\n	📅DATE: %s\n	📍LOCATION: %s]", this.getTitle(), this.getHomeTeamName(), this.getHomeTeamScore(), this.getAwayTeamScore(), this.getAwayTeamName(), this.getDescription(), this.getDate(), this.getLocation());
+		}
 		return String.format("[\n	📢TITLE: %s\n	🗒️DESCRIPTION: %s\n	📅DATE: %s\n	📍LOCATION: %s]", this.getTitle(), this.getDescription(), this.getDate(), this.getLocation());
 
 	}

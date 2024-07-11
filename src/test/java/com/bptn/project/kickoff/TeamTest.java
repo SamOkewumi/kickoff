@@ -43,10 +43,11 @@ public class TeamTest {
 	@Test
 	public void testFindPlayer() {
 		team.addPlayer(new Player("Kylian Mbappe", 10, "FW"));
-		team.addPlayer(new Player("N'golo Kante"));
+		team.addPlayer(new Player("N'Golo Kante"));
 		team.addPlayer(new Player("Lebron James", 23));
 		assertTrue(team.containsPlayer("Kylian Mbappe", 10, "FW"));
 		assertFalse(team.containsPlayer("Fake Player", 10, "GK"));
+		assertTrue(team.containsPlayer("N'Golo Kante", 0, "default"));
 	}
 	
 	@Test
@@ -65,6 +66,8 @@ public class TeamTest {
 	public void testSetMatches() {
 		team.setMatch(new Match("Test Match", "This is a test Match", "Test Date", "Test Location", "Test homeTeamName", "Test awayTeamName"));
 		assertEquals(1, team.getMatches().size());
+		team.setMatch(new Match("Test Match2", "This is another test Match", "Test Date", "Test Location", "Test homeTeamName", "Test awayTeamName"));
+		assertEquals(2, team.getMatches().size());
 	}
 	
 

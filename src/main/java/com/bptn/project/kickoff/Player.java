@@ -15,11 +15,11 @@ public class Player {
 	 * Overloaded constructor
 	 */
 	Player(String name){
-		this(name, null, null);
+		this(name, 0 , "default");
 	}
 	
 	Player(String name, Integer number){
-		this(name, number, null);
+		this(name, number, "default");
 		
 	}
 	

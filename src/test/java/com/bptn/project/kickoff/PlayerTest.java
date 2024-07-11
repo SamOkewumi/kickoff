@@ -9,7 +9,7 @@ public class PlayerTest {
 	
 	private Player player;
 	
-	@BeforeEach //solution implemented as playerCreation would fail due to setYellowCard running before. 
+	@BeforeEach 
 	public void createPlayer() {
 		player = new Player("Kylian Mbappe", 10, "FW");
 	}
@@ -27,14 +27,27 @@ public class PlayerTest {
 	
 	@Test
 	public void testSetPosition() {
-		player.setPosition("ST");
-		assertEquals("ST", player.getPosition());
+		String[] positions = {"ST", "FW", "CB", "GK", "Bench", "CM", "DF"};
+		
+		//iterate through an array of strings and test if the position variable is updated as a result
+		for(String position : positions) {
+			player.setPosition(position);
+			assertEquals(position, player.getPosition());
+		}
+		
 	}
 	
 	@Test
 	public void testSetGoalScored() {
-		player.setGoalScored(1);
-		assertEquals(1, player.getGoalScored());
+		int previousTotal = 0;
+		
+		//increment the goal scored to determine if the change is being recorded
+		for (int i = 0; i <5; i++) {
+			player.setGoalScored(i);
+			assertEquals(previousTotal + i, player.getGoalScored());
+			previousTotal += i;
+			
+		}
 		
 	}
 	
@@ -49,8 +62,15 @@ public class PlayerTest {
 	}
 	
 	@Test void testSetRedCard() {
-		player.setRedCard(1);
-		assertEquals(1, player.getRedCard());
+		int[] redCardNumber = {1, 2, 3, 5, 9};
+		int previousAmount = player.getRedCard();
+		
+		for(int increment : redCardNumber) {
+			player.setRedCard(increment);
+			assertEquals(previousAmount + increment, player.getRedCard());
+			previousAmount = player.getRedCard();
+		}
+
 	}
 	
 	

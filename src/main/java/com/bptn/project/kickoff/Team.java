@@ -55,7 +55,7 @@ public class Team {
 	}
 
 	//A flag to confirm if a set of player information already exists in the roster
-	public boolean containsPlayer(String name, int number, String position) { //boolean to check if entry already exist
+	public boolean containsPlayer(String name, Integer number, String position) { //boolean to check if entry already exist
 
 		for(Map.Entry<Integer, Player> playerInfo : roster.entrySet()) {
 			if(playerInfo.getValue().getName().equals(name) && playerInfo.getValue().getNumber() == number && playerInfo.getValue().getPosition().equals(position)) {
