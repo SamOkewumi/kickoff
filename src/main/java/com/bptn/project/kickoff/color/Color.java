@@ -1,4 +1,4 @@
-package com.bptn.project.kickoff;
+package com.bptn.project.kickoff.color;
 
 /*
  * A class that stores all the ANSI color codes as static variables so it can be referenced throughout the different files. 
