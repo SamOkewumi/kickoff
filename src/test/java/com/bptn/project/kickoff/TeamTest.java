@@ -7,6 +7,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import com.bptn.project.kickoff.match.Match;
+import com.bptn.project.kickoff.player.Player;
+import com.bptn.project.kickoff.team.Team;
+
 public class TeamTest {
 	
 	static private Team team;

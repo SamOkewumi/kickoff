@@ -1,10 +1,15 @@
-package com.bptn.project.kickoff;
+package com.bptn.project.kickoff.report;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+
+import com.bptn.project.kickoff.color.Color;
+import com.bptn.project.kickoff.match.Match;
+import com.bptn.project.kickoff.player.Player;
+import com.bptn.project.kickoff.team.Team;
 
 public class Report {
 	private BufferedWriter writer;

@@ -1,8 +1,12 @@
-package com.bptn.project.kickoff;
+package com.bptn.project.kickoff.team;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import com.bptn.project.kickoff.color.Color;
+import com.bptn.project.kickoff.match.Match;
+import com.bptn.project.kickoff.player.Player;
 
 
 public class Team {
@@ -67,29 +71,29 @@ public class Team {
 
 
 	//returns the name of the team. 
-	String getTeamName() { //return String of teamName
+	public String getTeamName() { //return String of teamName
 		return teamName;
 	}
 	//used to set the name of the team.
-	void setTeamName(String teamName) { //set the teamName
+	public void setTeamName(String teamName) { //set the teamName
 		this.teamName = teamName;
 	}
 	//returns the total goal value
-	int getTotalGoals() { //return # of total goals for the team
+	public int getTotalGoals() { //return # of total goals for the team
 		return totalGoals;
 	}
 	//allows for the incrementing of the total goal based on the parameters
-	void setTotalGoals(int totalGoals) { 
+	public void setTotalGoals(int totalGoals) { 
 		this.totalGoals += totalGoals;
 	}
 
 	//returns the total amount of matches for the team
-	int getTotalMatches() {
+	public int getTotalMatches() {
 		return totalMatches;
 	}
 
 	//update the total number of matches based on the parameter
-	void setTotalMatches(int totalMatches) { 
+	public void setTotalMatches(int totalMatches) { 
 		this.totalMatches += totalMatches; 
 	}
 
