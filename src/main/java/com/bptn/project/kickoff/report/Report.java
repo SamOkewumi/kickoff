@@ -15,18 +15,26 @@ public class Report {
 	private BufferedWriter writer;
 	private Team homeTeam;
 
-	//sets an instance of the team based on parameter
+	/**
+	 * Initializes a report instance with the specified team.
+	 * 
+	 * @param team the team for which the report will be generated. 
+	 */
 	public Report(Team team) {
 		this.homeTeam = team;
 	}
 
-	//method that calls the two report generation
+	/**
+	 * Calls the methods to generate the team report and the match report
+	 */
 	public void generateReports() {
 		generateTeamReport();
 		generateMatchReport();
 	}
 	
-	//using a bufferedwriter with a filewriter to write into a new text file. 
+	/**
+	 * Generates a report containing data about the team.
+	 */
 	public void generateTeamReport() {
 		try { 
 			writer = new BufferedWriter(new FileWriter("MyTeam.txt"));
@@ -76,13 +84,14 @@ public class Report {
 			writer.close();
 			System.out.println(Color.BLACK_BOLD + Color.GREEN_BACKGROUND + "✅Team report generated: MyTeam.txt" + Color.RESET);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "❌Failed to generate the team report." + Color.RESET);
-			//e.printStackTrace();
 		}
 		
 	}
-	//generate a report specific for the team's match data
+	
+	/**
+	 * Generates a report containing data about the match(es).
+	 */
 	public void generateMatchReport() {
 		try {
 			writer = new BufferedWriter(new FileWriter("MyMatches.txt"));
@@ -131,12 +140,9 @@ public class Report {
 			writer.close();
 			System.out.println(Color.BLACK_BOLD + Color.GREEN_BACKGROUND + "✅Match report generated: MyMatches.txt" + Color.RESET);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "❌Failed to generate the match report." + Color.RESET);
-			//e.printStackTrace();
 		}
 		
 	}
-
 
 }

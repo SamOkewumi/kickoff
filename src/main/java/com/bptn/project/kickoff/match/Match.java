@@ -30,8 +30,9 @@ public class Match extends Event{
 		this.setMatchPlayed(false);
 	}
 
+
 	@Override
-	public String getEventType() { //override abstract method
+	public String getEventType() { 
 		return "Match";
 	}
 

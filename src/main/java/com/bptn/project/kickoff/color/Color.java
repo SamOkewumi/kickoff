@@ -1,7 +1,7 @@
 package com.bptn.project.kickoff.color;
 
 /*
- * A class that stores all the ANSI color codes as static variables so it can be referenced throughout the different files. 
+ * Stores all the ANSI color codes as static variables so it can be referenced throughout the different files. 
  * Allows for the utilization of colors outside the default black and white.
  * Adds visual enhancements to the console printouts. 
  */

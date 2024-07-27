@@ -19,8 +19,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Main {
 
-	static Scanner scanner =  new Scanner (System.in); //take user input from the console
-	static ObjectMapper objectMapper = new ObjectMapper(); //initializes an objectmapper to read or write a json file/url
+	static Scanner scanner =  new Scanner (System.in);
+	static ObjectMapper objectMapper = new ObjectMapper(); //provides the functionality for reading the JSON file
 	static Team team;
 
 	public static void main(String[] args) {
@@ -32,7 +32,7 @@ public class Main {
 	static void displayMenu() {
 		
 		int menuOption = 0;
-		//flag to monitor if user has selected the exit option. 
+		//breaks the loop once the exit option is selected. 
 		boolean running = true;
 		System.out.println(Color.BLUE_BOLD + Color.YELLOW_BACKGROUND + "Welcome " + team.getTeamName() + " to the 🚀KickOff App!" + Color.RESET);
 
@@ -56,7 +56,6 @@ public class Main {
 				menuOption = Integer.valueOf(scanner.nextLine());
 			} catch (NumberFormatException e) {
 				System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: Please enter a whole number." + Color.RESET);
-				//e.printStackTrace();
 			}
 
 			if(menuOption == 1) {
@@ -73,10 +72,8 @@ public class Main {
 					scheduleMatch();
 				} catch (MalformedURLException e) {
 					System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: Error with the provided URL. Please double check the url and try again." + Color.RESET);
-					//e.printStackTrace();
 				} catch (IOException e) {
 					System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: The url provided is not a valid json file." + Color.RESET);
-					//e.printStackTrace();
 				}
 			}
 			else if (menuOption == 5) {
@@ -89,7 +86,7 @@ public class Main {
 				generateReport();
 			}
 			else if (menuOption == 8) {
-				running = false; //if selected, program terminates 
+				running = false; //sets the condition for exiting the program
 			}
 			else {
 				System.out.println(Color.BLACK_BACKGROUND + Color.YELLOW_BOLD_BRIGHT + "📙: Incorrect input, please try again" + Color.RESET);
@@ -101,23 +98,31 @@ public class Main {
 		scanner.close();
 	}
 
-	//Welcome screen obtains input from user and creates an instance of a team object. 
+	/**
+	 * Creates a new team by prompting the user for the team name.
+	 */
 	static void createTeam() {
 		System.out.println(Color.CYAN_BOLD_BRIGHT + "Team Name: " + Color.RESET);
 		String teamName = scanner.nextLine();
-		//create an instance of a team. 
+		
+		//create a new team instance with the provided team name. 
 		team = new Team(teamName);
 
-
 	}
-	//option for user to rename the instance of the team created. 
+	/**
+	 * Updates the name of the existing team by prompting the user for a new team name. 
+	 */
 	static void updateTeamName() {
 		System.out.println(Color.CYAN_BOLD_BRIGHT + "Updated Team Name: " + Color.RESET);
 		String newName = scanner.nextLine();
+		
+		//Set the team's name to the new name provided.
 		team.setTeamName(newName);
 	}
 
-	//method to add players. Either through a CSV formatted .txt file or manually through console input. 
+	/**
+	 * Adds player to the team roster either from a formatted text file or manually through console input.
+	 */
 	static void addPlayers() {
 
 		System.out.println(Color.CYAN_BACKGROUND_BRIGHT + Color.BLACK_BOLD +  "How would you like to fill the roster?" + Color.RESET);
@@ -128,32 +133,32 @@ public class Main {
 			choice = Integer.valueOf(scanner.nextLine());
 		} catch (NumberFormatException e) {
 			System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: Please enter a number." + Color.RESET);
-			//e.printStackTrace();
 		}
 
 
 		if (choice == 1) {
 			System.out.println(Color.CYAN_BOLD_BRIGHT + "Name of the file: " + Color.RESET);
 			String fileName = scanner.nextLine();
-			if (!(fileName.endsWith(".txt"))) { // concatenates .txt to the file if the input does not already include it. 
+			if (!(fileName.endsWith(".txt"))) { // concatenates '.txt' to the file name if the user input does not already include it. 
 				fileName += ".txt";
 			}
 
 			/*
-			 * catch the exception in case the file is not found or does not exist. 
+			 * Try to read the provided file name
+			 * 
+			 * catches the exception in case the file is not found or does not exist. 
 			 */
 			try {
 				BufferedReader reader = new BufferedReader(new FileReader(fileName));
 				String line;
 				while ((line = reader.readLine()) != null) {
-					playerAddition(line); //calls the player addition method based on the input provided on each line of the file. 
+					playerAddition(line); //Passes each line in the text file as a argument to the playerAddition method
 
 				}
 				System.out.println(Color.BLACK_BOLD + Color.GREEN_BACKGROUND + "💯: additions completed." + Color.RESET);
 				reader.close();
 			} catch (IOException e) {
 				System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: Failed to load the file provided. Please double check and try again." + Color.RESET);
-				//e.printStackTrace();
 			} 
 		}
 		else if (choice == 2) {
@@ -163,10 +168,10 @@ public class Main {
 			System.out.print("Entry: ");
 			while(true) {
 				String input = scanner.nextLine();
-				if(input.equals("exit")) { //keyword entered breaks out of the entry loop. 
+				if(input.equals("exit")) { //keyword breaks out of the loop. 
 					break;
 				}
-				playerAddition(input); //calls the playerAddition method based on the input provided on each line user console input.
+				playerAddition(input); 
 				System.out.print("Entry: ");
 
 			}
@@ -177,7 +182,11 @@ public class Main {
 		}
 	}
 
-	//method used to add players to the roster based on a particular format. 
+	/**
+	 * Adds a player to the team roster based on the provided input.
+	 * 
+	 * @param line A comma-separated string containing player details in the format "name, number, position"
+	 */
 	static void playerAddition(String line) {
 		String[] separated = line.split(", ");
 
@@ -193,36 +202,37 @@ public class Main {
 
 		} catch (NumberFormatException e) {
 			System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: Failed to add " + separated[0] + ". Please provide the jersey number in numerical form." + Color.RESET);
-			//e.printStackTrace();
 		} catch (IndexOutOfBoundsException e) {
 			System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: incorrect format provided. Please try again." + Color.RESET);
-			//e.printStackTrace();
 		}
 	}
 	
-	//calls the method that prints out the full formated roster. 
+	/**
+	 * Displays the full roster.
+	 */
 	static void viewTeam() {
 		System.out.println(Color.CYAN_BACKGROUND_BRIGHT + Color.BLACK_BOLD + "👋Welcome, " + team.getTeamName() + ". This is your roster." + Color.RESET);
 		team.displayRoster(); 
 
 	}
 
-	//schedule match(es) either based on a json url or manually through console input
+	/**
+	 * Adds matches to the team schedule either from a API or manually through console input.
+	 */
 	static void scheduleMatch() throws MalformedURLException,IOException {
 		System.out.println(Color.CYAN_BACKGROUND_BRIGHT + Color.BLACK_BOLD + "How would you like to fill the matches?" + Color.RESET);
 		System.out.println(Color.BLACK_BACKGROUND + Color.WHITE_BOLD_BRIGHT + "[1️⃣] Fill from an api." + Color.RESET);
 		System.out.println(Color.BLACK_BACKGROUND + Color.WHITE_BOLD_BRIGHT + "[2️⃣] Manually add matches." + Color.RESET);
 
 		int choice = 0;
-		//catch the exception when user does not provide a valid number format. 
+		//catches the exception when the input is not valid. 
 		try {
 			choice = Integer.valueOf(scanner.nextLine());
 		} catch (NumberFormatException e) {
 			System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: Please enter a number." + Color.RESET);
-			//e.printStackTrace();
 		}
 
-		URL jsonUrl; //allocates memory space for URL object
+		URL jsonUrl; //allocates memory space for the URL object
 		
 
 		if(choice == 1) {
@@ -231,17 +241,19 @@ public class Main {
 
 			System.out.println(Color.CYAN_BOLD_BRIGHT + "⏳checking url..." + Color.RESET);
 
-			//initialize URL object
+			//create a new URL instance with the provided string input
 			jsonUrl = new URL(url); //throw MalformedURL if the url passed is not valid
 			//URL is passed to the JsonNode which will traverse all the json trees present in the file provided to find 
 			JsonNode json = objectMapper.readTree(jsonUrl); //throw IOException if the file is not json formatted
 			
-			//matching value pairs based on the predetermined keys provided and then storing the associated values in variables
+			//Extracts the values from each node
 			try {
 				for (JsonNode node : json) {
 					String location = node.get("ArenaName").textValue();
 					String awayTeamName = "";
 
+					//team name may contain potential parenthesis
+					//cleans away the away team name
 					if(node.get("AwayTeamName").textValue().indexOf("(") == -1){
 						awayTeamName = node.get("AwayTeamName").textValue();
 					}
@@ -251,7 +263,7 @@ public class Main {
 					}
 
 					String homeTeamName = "";
-
+					//cleans away the home team name
 					if(node.get("HomeTeamName").textValue().indexOf("(") == -1){
 						homeTeamName = node.get("HomeTeamName").textValue();
 					}
@@ -264,21 +276,22 @@ public class Main {
 					String title = awayTeamName + " VS " + homeTeamName;
 					String description = "Division Game: " + title;
 
+					//Create and set the match based on the extracted values
 					Match match = new Match(title, description, date, location, awayTeamName, homeTeamName);
 					team.setMatch(match);
-
+					
+					//Increments the total matches
 					team.setTotalMatches(1);
 
 				}
 			} catch (NullPointerException e) { //catch exception if file does not contain the predetermined keys. 
 				System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: Mismatched return values in file provided." + Color.RESET);
-				//e.printStackTrace();
 			}
 			System.out.println(Color.BLACK_BOLD + Color.GREEN_BACKGROUND + "✅: Match(es) has been created!" + Color.RESET);
 
 
 		}
-		else if(choice == 2) { //option to manually add match from user console input.
+		else if(choice == 2) { //manually creates a match through console inputs
 			System.out.println(Color.CYAN_BOLD_BRIGHT + "Enter the title of the event: " + Color.RESET);
 			String title = scanner.nextLine();
 
@@ -310,41 +323,43 @@ public class Main {
 
 	}
 
+	/**
+	 * Displays all available matches and initiates the process of recording the results
+	 */
 	static void matchResult() {
-		//use eventID to find the correct match
-		if (team.getTotalMatches() > 0 ) { //Exit if there are no current matches. 
+		if (team.getTotalMatches() > 0 ) { //Exits if there are no current matches. 
 			System.out.println(Color.CYAN_BOLD_BRIGHT + "Below are all your matches." + Color.RESET);
 
 			team.displayMatches();//display all the matches
 
+			//Uses the eventID to find a particular match
 			System.out.println(Color.CYAN_BACKGROUND_BRIGHT + Color.BLACK_BOLD + " 🔍 Enter the MatchID: " + Color.RESET);
 			String matchID =  "";
 			try {
 				matchID = scanner.nextLine();
 			} catch (NumberFormatException e) { //catch exception if input provided is not a number
 				System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: Please enter a numerical matchID." + Color.RESET);
-				//e.printStackTrace();
 			}
 			
-			//set an instance of match based on the match ID provided which will pull a specific match information from the map of all matches
+			//Sets a single instance of match based on the matchID parameter passed.
 			Match selectedMatch = team.getMatch(matchID);
 
-			if (selectedMatch != null) { //make sure this match exists and has a value
+			if (selectedMatch != null) { //Check selected match is valid.
 				System.out.println(Color.BLUE_BOLD + Color.WHITE_BACKGROUND + "⚔️Match Selected: " + team.getMatch(matchID).getTitle() + Color.RESET);
 				
-				//In the json file, sometimes the "selected" team is not the home team in a match. This is to confirm if they are in this instance.
+				//In the JSON file, sometimes the "User's" team is not the home team in that particular match. This check will validate the status.
 				System.out.println(Color.CYAN_BACKGROUND_BRIGHT + Color.BLACK_BOLD + "Enter 'yes' if " +selectedMatch.getHomeTeamName() + " is the home team" + Color.RESET);
 				String confirm = scanner.nextLine();
 				
-				//variables that will be used for the displayed team names depending if the user's team is selected as home team 
+				//Variables that will be used to display team names depending if the user's team is selected as the home team 
 				String homeTeamName;
 				String awayTeamName;
 				
-				if(confirm.equalsIgnoreCase("yes")) { // confirmation from user if their "selected" team is the home team for the match. 
+				if(confirm.equalsIgnoreCase("yes")) { // confirmation from the user that the "selected" team is the home team for the match. 
 					homeTeamName = selectedMatch.getHomeTeamName();
 					awayTeamName = selectedMatch.getAwayTeamName();
 				}
-				else { //if the "selected" team is not the home team in the match, we swap the names as homeTeam score is recorded first to update the user's team total score. 
+				else { //if the "selected" team is not the home team in the match, we swap the names. This is because the first score recorded will be added to the User's team total goal tally.
 					homeTeamName = selectedMatch.getAwayTeamName();
 					awayTeamName = selectedMatch.getHomeTeamName();
 					selectedMatch.setAwayTeamName(awayTeamName);
@@ -357,7 +372,6 @@ public class Main {
 					homeTeamScore = scanner.nextInt();
 				} catch (NumberFormatException e) {
 					System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: Please enter a numerical score." + Color.RESET);
-					//e.printStackTrace();
 				}
 				scanner.nextLine();
 				System.out.println(Color.CYAN_BOLD_BRIGHT + "[AwayTeam] Enter " + awayTeamName + "'s score: " + Color.RESET);
@@ -366,13 +380,12 @@ public class Main {
 					awayTeamScore = scanner.nextInt();
 				} catch (NumberFormatException e) {
 					System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: Please enter a numerical score." + Color.RESET);
-					//e.printStackTrace();
 				}
 				scanner.nextLine();
 				
-				//pass instance of the home team as a parameter to the method. 
+				//Passes an instance of team object so that the statistics can be appropriately recorded. 
 				selectedMatch.setHomeTeam(team);
-				//record match scores
+				//Calls the method to record the results of the match
 				selectedMatch.recordResult(homeTeamScore, awayTeamScore);
 
 				System.out.println(Color.BLACK_BOLD + Color.GREEN_BACKGROUND + "✅: Scores recorded." + Color.RESET);
@@ -382,7 +395,7 @@ public class Main {
 					updateScoresheet(selectedMatch, homeTeamScore);
 				}
 				
-				//update cautions received in the match if there are any. 
+				//Records player cautions statistic
 				System.out.println(Color.CYAN_BOLD_BRIGHT + "Are there any cautions to record? enter 'yes': " + Color.RESET);
 				if(scanner.nextLine().equalsIgnoreCase("yes")) {
 					upadateCautions();
@@ -402,6 +415,13 @@ public class Main {
 
 	}
 
+	
+	/**
+	 * Updates the results for the team and player(s)
+	 * 
+	 * @param selectedMatch the match which the results are referencing
+	 * @param homeTeamScore the number of goals for the team
+	 */
 	static void updateScoresheet(Match selectedMatch, int homeTeamScore) {
 		boolean notValid; //flag to ensure the calculation is correct
 
@@ -413,8 +433,8 @@ public class Main {
 		do {
 			int totalGoalsRecorded = 0;
 			notValid = false;
-			scoreValid.clear(); //when this resets, we want to clear any previous entries in the map.
-			outerloop: // used so we can break out of the entire flow and restart once the condition is not met
+			scoreValid.clear(); //If the calculation is not valid and loop resets, previous entries in the map are removed.
+			outerloop: // pointer to the outer loop used so breaks can be directed directly at this level rather than at the individual scopes. 
 				for (int j = 0; j < 1; j++) {
 
 					System.out.println(Color.CYAN_BOLD_BRIGHT + "How many different players scored for " + selectedMatch.getHomeTeamName() + " in this match?" + Color.RESET);
@@ -432,15 +452,14 @@ public class Main {
 
 							if (numGoals <= homeTeamScore) {
 								scoreValid.put(playerID, numGoals);
-								//selectedMatch.recordPlayerGoal(playerID, numGoals);
 								System.out.println(Color.BLACK_BOLD + Color.GREEN_BACKGROUND + "✅: Statistic for " + team.getPlayer(playerID).getName() + " has been recorded." + Color.RESET);
 								totalGoalsRecorded += numGoals;
 							} else {
 								System.out.println(Color.WHITE_BACKGROUND_BRIGHT + Color.RED_BOLD_BRIGHT + 
 										"❌: Player goal(s) cannot be greater than score. Please try again." + Color.RESET);
 								notValid = true;
-								//break; <--breaks out of the first for-loop but continues executing the subsequent line. Want to break out of the outer for loop instead. 
-								break outerloop; //this fixes the above issue
+								//break; <--breaks out of the first for-loop but continues executing the subsequent line. 
+								break outerloop; //References the exact loop to break
 							}
 							System.out.println(Color.CYAN_BOLD_BRIGHT + "There are " + (homeTeamScore - totalGoalsRecorded) + " goals left to account for." + Color.RESET);
 						}
@@ -467,12 +486,15 @@ public class Main {
 
 		} while (notValid);
 
-		//once the scores have been validated, they will now be used to updated the player statistic. 
+		//Once the Results have been validated, Player statistic can now be correctly updated.  
 		for (Map.Entry<Integer, Integer> scores : scoreValid.entrySet()) {
 			selectedMatch.recordPlayerGoal(scores.getKey(), scores.getValue());
 		}
 	}
 
+	/**
+	 * Method to record the cautions received by a player
+	 */
 	static void upadateCautions() {
 		System.out.println(Color.CYAN_BOLD_BRIGHT + "Below is your roster for reference." + Color.RESET);
 		team.displayRoster();
@@ -494,7 +516,6 @@ public class Main {
 					team.getPlayer(Integer.valueOf(separate[0])).setRedCard(1);
 				} catch (NumberFormatException e) {
 					System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: Incorrect format. Please try again." + Color.RESET);
-					//e.printStackTrace();
 				}
 
 
@@ -504,7 +525,6 @@ public class Main {
 					team.getPlayer(Integer.valueOf(input)).setYellowCard(1);
 				} catch (NumberFormatException e) {
 					System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: Incorrect format. Please try again." + Color.RESET);
-					//e.printStackTrace();
 				}
 			}
 			System.out.print("Entry: ");
@@ -525,7 +545,6 @@ public class Main {
 				team.getPlayer(Integer.valueOf(input)).setRedCard(1);
 			} catch (NumberFormatException e) {
 				System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: Incorrect format. Please try again." + Color.RESET);
-				//e.printStackTrace();
 			}
 
 			System.out.print("Entry: ");
@@ -535,6 +554,9 @@ public class Main {
 
 	}
 
+	/**
+	 * Provides modification options to add or remove a player from the current roster.
+	 */
 	static void manageRoster() {
 		System.out.println(Color.CYAN_BACKGROUND_BRIGHT + Color.BLACK_BOLD + "Please select one of the options below!" + Color.RESET);
 		System.out.println(Color.BLACK_BACKGROUND + Color.WHITE_BOLD_BRIGHT + "~~~~ [1️⃣] ADD A PLAYER    ~~~" + Color.RESET);
@@ -545,7 +567,6 @@ public class Main {
 			choice = Integer.valueOf(scanner.nextLine());
 		} catch (NumberFormatException e) {
 			System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: Please enter a number." + Color.RESET);
-			//e.printStackTrace();
 		}
 
 		if (choice == 1 ) {
@@ -555,7 +576,6 @@ public class Main {
 				playerAddition(input);
 			} catch (Exception e) {
 				System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: failed to add player. Double check your formating." + Color.RESET);
-				//e.printStackTrace();
 			}
 
 		}
@@ -567,7 +587,7 @@ public class Main {
 			int playerID = scanner.nextInt();
 			scanner.nextLine();
 
-			if(team.getPlayer(playerID) != null) { //check if the provided player information exists in the roster. 
+			if(team.getPlayer(playerID) != null) { //Checks if the player exists in the roster. 
 				System.out.println(Color.YELLOW_BOLD_BRIGHT + "❕: You are about to remove " + team.getPlayer(playerID).getName() + " from the roster. Enter yes to proceed." + Color.RESET);
 				String confirm = scanner.nextLine();
 				if (confirm.equalsIgnoreCase("yes")){
@@ -575,9 +595,7 @@ public class Main {
 					try {
 						team.removePlayer(playerID); 
 					} catch (NullPointerException e) {
-						// TODO Auto-generated catch block
 						System.out.println(Color.BLACK_BACKGROUND + Color.RED_BOLD_BRIGHT + "📕: Unexpected error. Please try again." + Color.RESET);
-						//e.printStackTrace();
 					}
 					System.out.println(Color.BLACK_BOLD + Color.GREEN_BACKGROUND + "✅: " + playerRemovedName + " has been removed from the roster." + Color.RESET);
 				}
@@ -596,6 +614,10 @@ public class Main {
 		}
 
 	}
+	
+	/**
+	 * Generates the reports for the team. 
+	 */
 	static void generateReport() {
 		Report report = new Report(team);
 		report.generateReports();

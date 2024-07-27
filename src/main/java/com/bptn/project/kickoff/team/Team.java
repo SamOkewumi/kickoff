@@ -16,15 +16,23 @@ public class Team {
 	private int totalGoals;
 	private int totalMatches;
 
-	private String teamName; // let user set the name of the team
+	private String teamName; 
 
-	// A map that pairs incrementing matchID with match details
-	private Map<Integer, Match> matches; //
+	/**
+	 * A map that pairs incrementing match IDs with match details
+	 */
+	private Map<Integer, Match> matches; 
 
-	//A map that pairs incrementing playerID with player information
+	/**
+	 * A map that pairs incrementing player IDs with player information
+	 */
 	private Map<Integer, Player> roster; 
 
-	//Constructor for a team object, sets the name and initializes variables
+	/**
+	 * Initializes a new team with the specified name and sets default values to some field variables.
+	 * 
+	 * @param teamName the name of the team
+	 */
 	public Team(String teamName) {
 		this.teamName = teamName;
 		totalGoals = 0;
@@ -33,7 +41,12 @@ public class Team {
 		this.roster = new LinkedHashMap<>();
 	}
 
-	//method to add players to the roster map which increments the playerID as as a player is added. 
+	/**
+	 * Adds a player to the team roster.
+	 * Increments the playerID variable as a result.
+	 * 
+	 * @param player the player to be added to the roster
+	 */
 	public void addPlayer(Player player) { //add a player to the list of players
 
 		roster.put(playerID, player);
@@ -42,93 +55,154 @@ public class Team {
 	}
 
 
-	//Uses playerID as a parameter to return details pertaining to the player
+	/**
+	 * Retrieves the player with the specified ID.
+	 * 
+	 * @param playerID used to retrieve a specific player
+	 * @return the player requested or {@code null} if the player is not found
+	 */
 	public Player getPlayer(int playerID) {
 		if(roster.containsKey(playerID)) {
 			return roster.get(playerID);
 		}
-
 		return null;
 	}
 
-	//Uses playerID as a parameter to remove the passed player parameter from the roster. 
+	/**
+	 * Identifies the player to be removed from the roster.
+	 * 
+	 * @param playerID the player to be removed
+	 */
 	public void removePlayer(Integer playerID) {
 		if(roster.containsKey(playerID)) {
 			roster.remove(playerID);
 		}
 	}
 
-	//A flag to confirm if a set of player information already exists in the roster
-	public boolean containsPlayer(String name, Integer number, String position) { //boolean to check if entry already exist
+	/**
+	 * Checks if a player with the specified name, number and position exist in the roster.
+	 * 
+	 * @param name the name of the player
+	 * @param number the number of the player
+	 * @param position the position of the player
+	 * @return {@code true} if the player exists; {@code false} otherwise
+	 */
+	public boolean containsPlayer(String name, Integer number, String position) { 
 
 		for(Map.Entry<Integer, Player> playerInfo : roster.entrySet()) {
 			if(playerInfo.getValue().getName().equals(name) && playerInfo.getValue().getNumber() == number && playerInfo.getValue().getPosition().equals(position)) {
 				return true;
 			}
 		}
-		return false; //if no player matches the parameter, return false
+		return false; 
 	}
 
 
-	//returns the name of the team. 
+	/**
+	 * Gets the name of the team. 
+	 * 
+	 * @return the name of the team
+	 */
 	public String getTeamName() { //return String of teamName
 		return teamName;
 	}
-	//used to set the name of the team.
+	/**
+	 * Sets the name of the team based on the parameter value.
+	 * 
+	 * @param teamName the name to set the team
+	 */
 	public void setTeamName(String teamName) { //set the teamName
 		this.teamName = teamName;
 	}
-	//returns the total goal value
-	public int getTotalGoals() { //return # of total goals for the team
+	/**
+	 * 
+	 * @return the total number of goals
+	 */
+	public int getTotalGoals() { 
 		return totalGoals;
 	}
-	//allows for the incrementing of the total goal based on the parameters
+	
+	/**
+     * Increments the number of goals for the team.
+     *
+     * @param totalGoals the number of goals to add to the team's total
+     */
 	public void setTotalGoals(int totalGoals) { 
 		this.totalGoals += totalGoals;
 	}
 
-	//returns the total amount of matches for the team
+	/**
+	 * 
+	 * @return the total number of matches
+	 */
 	public int getTotalMatches() {
 		return totalMatches;
 	}
 
-	//update the total number of matches based on the parameter
+	/**
+     * Increments the number of match for the team.
+     *
+     * @param totalMatches the number of matches to add to the team's total
+     */
 	public void setTotalMatches(int totalMatches) { 
 		this.totalMatches += totalMatches; 
 	}
 
-	//returns the fill map of matches
-	public Map<Integer, Match> getMatches() { // return a full map of the matches
+	/**
+	 * Returns the full map of the matches.
+	 * 
+	 * @return the map containing all the matches, where the key is the match ID and the value is the match details
+	 */
+	public Map<Integer, Match> getMatches() { 
 
 		return matches;
 	}
 
-	// return a full map of the player roster
+	/**
+	 * Returns the full map of the roster.
+	 * 
+	 * @return the map containing all the players, where the key is the player ID and the value is the player details
+	 */
 	public Map<Integer, Player> getRoster() { 
 
 		return roster;
 	}
 
-	//formated printout of the matchID and match details
+	/**
+	 * A formatted display of all the matches. 
+	 */
 	public void displayMatches() { 
 		for (Map.Entry<Integer, Match> match : matches.entrySet()) {
 			System.out.println(Color.WHITE_BOLD_BRIGHT + Color.BLACK_BACKGROUND + "️MatchID: " + match.getKey() + " ☘️ " + Color.RESET + match.getValue());
 		}
 	}
 
-	//add a new match to the map with the key as the name of the opponent and the value as the match
+	/**
+	 * Adds a new match to the map. The key is an incrementing match ID, and the value is the match details.
+	 * 
+	 * @param match the match to be added
+	 */
 	public void setMatch( Match match) { 
 		matches.put(matchID, match);
 		matchID++;
 	}
 
-	//return a specific match based on the key (matchID) value passed
+	/**
+	 * Returns the requested match information.
+	 * 
+	 * @param input to located the specified match
+	 * @return the specified match
+	 */
 	public Match getMatch(String input) { 
 
 		return matches.get(Integer.parseInt(input)); 
 	}
 
-	//formated printout of the playerID and player details
+	/**
+	 * A formatted display of all the players on the roster.
+	 * 
+	 * Adds an extra space to align the text for matchIDs with only a single digit
+	 */
 	public void displayRoster() { 
 		int extraSpace = 1;
 
